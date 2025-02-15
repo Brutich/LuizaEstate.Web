@@ -30,9 +30,6 @@ jobs:
       - name: Publish
         run: dotnet publish ./LuizaEstate.Web.csproj --configuration Release -o publish --no-build
 
-      - name: Fix base href
-        run: sed -i 's|<base href="/" />|<base href="/LuizaEstate.Web/" />|' publish/wwwroot/index.html
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
