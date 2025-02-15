@@ -3,7 +3,10 @@ name: Deploy Blazor WebAssembly to GitHub Pages
 on:
   push:
     branches:
-      - main  # или любая другая ветка, из которой вы хотите деплоить
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
