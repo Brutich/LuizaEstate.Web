@@ -25,10 +25,15 @@ jobs:
         run: dotnet restore ./LuizaEstate.Web.csproj
 
       - name: Build
-        run: dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
+        run: dotnet build ./LuizaEstate.Web.csproj \
+          --configuration Release \
+          /p:StaticWebAssetBasePath="/LuizaEstate.Web/"
 
       - name: Publish
-        run: dotnet publish ./LuizaEstate.Web.csproj --configuration Release --no-build -o publish /p:StaticWebAssetBasePath="/LuizaEstate.Web/"
+        run: dotnet publish ./LuizaEstate.Web.csproj \
+          --configuration Release \
+          -o publish \
+          --no-build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
