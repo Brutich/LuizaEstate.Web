@@ -1,0 +1,24 @@
+﻿<MudStack Spacing="6" AlignItems="AlignItems.Center" Style="text-align:center">
+
+    @CoverImage
+
+    @if (!string.IsNullOrWhiteSpace(Title))
+    {
+        <MudText Typo="Typo.h5">@Title</MudText>
+    }
+
+    @ChildContent
+
+</MudStack>
+
+@code{
+    [Parameter]
+    public RenderFragment? CoverImage { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+}
