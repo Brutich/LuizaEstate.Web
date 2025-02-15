@@ -28,7 +28,7 @@ jobs:
         run: dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./LuizaEstate.Web.csproj --configuration Release --no-build -o publish
+        run: dotnet publish ./LuizaEstate.Web.csproj --configuration Release --no-build -o publish /p:BaseHref="/LuizaEstate.Web/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
