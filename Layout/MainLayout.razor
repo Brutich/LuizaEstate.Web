@@ -1,17 +1,25 @@
 ﻿@inherits LayoutComponentBase
 
-@* Required *@
-<MudThemeProvider />
+<MudThemeProvider Theme="@mainTheme" />
 <MudPopoverProvider />
 
-@* Needed for dialogs *@
 <MudDialogProvider />
 
-@* Needed for snackbars *@
 <MudSnackbarProvider />
 
 <MudLayout>
+    <MudAppBar Elevation="0" Color="Color.Transparent">
+    <MudContainer MaxWidth="MaxWidth.Large">
+        <MudStack Row Justify="Justify.Center" Style="align-items: center">
+            <MudSpacer />
+            <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        </MudStack>
+    </MudContainer>
+    </MudAppBar>
     <MudMainContent>
-        @Body
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @Body
+        </MudContainer>        
     </MudMainContent>
 </MudLayout>
+
