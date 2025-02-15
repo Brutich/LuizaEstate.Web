@@ -1,4 +1,4 @@
-/* LuizaEstate.Web/Layout/MainLayout.razor.rz.scp.css */
+/* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-f1tlbxedxn] {
     position: relative;
     display: flex;
@@ -76,7 +76,7 @@ main[b-f1tlbxedxn] {
         padding-right: 1.5rem !important;
     }
 }
-/* LuizaEstate.Web/Layout/NavMenu.razor.rz.scp.css */
+/* /Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-ny0xppkahp] {
     background-color: rgba(255, 255, 255, 0.1);
 }
