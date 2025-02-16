@@ -22,6 +22,7 @@ public partial class MainLayout
             {
                 FontFamily = new string[] { "Montserrat", "Comfortaa", "Helvetica", "Roboto" }
             }
-        }
+        },
+        LayoutProperties = new LayoutProperties() { DefaultBorderRadius = "0px" }
     };
 }
