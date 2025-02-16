@@ -7,10 +7,11 @@ public partial class MainLayout
     private static readonly PaletteLight paletteLight =
         new()
         {
-            Dark = "#2E4942",
-            TextPrimary = "#2E4942",
             Primary = "#B87E58",
-
+            Secondary = "#2E4942",
+            Tertiary = "#EAEAD9",
+            TextPrimary = "#2E4942",
+            Dark = "#2E4942",
         };
 
     private readonly MudTheme mainTheme = new MudTheme()
