@@ -1,9 +1,9 @@
 {
   "mainAssemblyName": "LuizaEstate.Web",
   "resources": {
-    "hash": "sha256-Zsj27az4FAtM0lD+k7AUTAfZaqNfhHZSN9AWk+QRxwo=",
+    "hash": "sha256-gilTeElMA1OAo/fRWpTAuLaVVKzz1jKvhwObXy9DHcE=",
     "fingerprinting": {
-      "LuizaEstate.Web.x8lhvpb557.wasm": "LuizaEstate.Web.wasm",
+      "LuizaEstate.Web.hkcs8y1ldl.wasm": "LuizaEstate.Web.wasm",
       "Microsoft.AspNetCore.Components.vdbzdzg2ww.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.lo6bohvv15.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.pq7fdyw1tb.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
@@ -68,7 +68,7 @@
       "System.Runtime.InteropServices.JavaScript.f4ln4hfftw.wasm": "sha256-r+LQmgoVdHgFKWJvUNAR7HQZAtSw+xvBIQ6siSPsBNM="
     },
     "assembly": {
-      "LuizaEstate.Web.x8lhvpb557.wasm": "sha256-0fguxA8QDLBR742YUNXEza9rvF+4Q3r/xYY9N57pRoY=",
+      "LuizaEstate.Web.hkcs8y1ldl.wasm": "sha256-X7G52Fq7tIHkqbG38KRWLQC5zyUyAX2mfqEsp3tye9E=",
       "Microsoft.AspNetCore.Components.vdbzdzg2ww.wasm": "sha256-Yz2YF3U9JyUM4wED5syjeuNXF1NSgSzJ6uCgzHCfubk=",
       "Microsoft.AspNetCore.Components.Web.lo6bohvv15.wasm": "sha256-laL1+NECF5ZsCv/JZ5qvZanwn+78oHNrLw2PG7ooy2c=",
       "Microsoft.AspNetCore.Components.WebAssembly.pq7fdyw1tb.wasm": "sha256-D/ZUWrvE7bqOtBfOWuLj+4RNqOvNZ0SnjD6QrBwUcb8=",
