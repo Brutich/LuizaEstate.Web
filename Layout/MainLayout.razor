@@ -8,13 +8,23 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar Elevation="0" Color="Color.Transparent">
-    <MudContainer MaxWidth="MaxWidth.Large">
-        <MudStack Row Justify="Justify.Center" Style="align-items: center">
-            <MudSpacer />
-            @* <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" /> *@
-        </MudStack>
-    </MudContainer>
+    <MudAppBar Elevation="0" Fixed Style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px);">
+        <MudContainer MaxWidth="MaxWidth.Large">
+            <MudStack Row Justify="Justify.Center" Style="align-items: center">
+                <div style="height:39px; width:39px; padding-top:5px; padding-right:2px;">
+                    <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M66.3048 71.4112C66.3048 80.8343 58.6665 88.4718 49.2442 88.4718C39.8211 88.4718 32.1836 80.8335 32.1836 71.4112C32.1836 61.9881 39.8219 54.3506 49.2442 54.3506C58.6673 54.3506 66.3048 61.9889 66.3048 71.4112Z" fill="#DCDCC8" />
+                        <path d="M5.11792 46.7131V74.1041H0V43.9299L49.9996 11.5278L100 43.9308V74.1033H94.8812V46.7131L50.0004 17.6275L5.11792 46.7131Z" fill="#B87E58" />
+                    </svg>
+                </div>
+                <MudText Typo="Typo.h4" Style="font-weight:200">Luiza Estate</MudText>
+                <MudSpacer />
+                <MudText Typo="Typo.h6">
+                    <a href="tel:+74957715514">+7 495 771 55 14</a>
+                </MudText>
+                @* <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" /> *@
+            </MudStack>
+        </MudContainer>
     </MudAppBar>
     <MudMainContent>
         @Body 

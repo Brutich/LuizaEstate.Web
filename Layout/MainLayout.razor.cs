@@ -12,6 +12,7 @@ public partial class MainLayout
             Tertiary = "#EAEAD9",
             TextPrimary = "#2E4942",
             Dark = "#2E4942",
+            AppbarText = "#2E4942",
         };
 
     private readonly MudTheme mainTheme = new MudTheme()
