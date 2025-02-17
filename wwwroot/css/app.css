@@ -49,7 +49,7 @@ code {
 }
 
 @media (max-width: 600px) {
-    .mud-typography.mud-typography-h1 {
+    .mud-typography.mud-typography-h2 {
         font-size: 3.1rem;
     }
 }

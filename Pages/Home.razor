@@ -4,14 +4,48 @@
 
 <PageTitle>Luiza Estate</PageTitle>
 
-<Section Title="Luiza Estate">
+<Section Style="background-color:rgb(249 244 240);">
+    <MudGrid Spacing="0" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+        <!-- Левая часть: текст -->
+        <MudItem xs="12" md="6" Class="pa-8 py-sm-14 pe-sm-14 ps-sm-0 py-md-20 ps-sm-20 ps-md-0">
+            <MudStack Spacing="0">
+                <MudText Typo="Typo.h2" Align="Align.Start" Class="mb-2">
+                    Луиза Алиниседова
+                </MudText>
+                <MudText Typo="Typo.h5" Align="Align.Start" Class="mb-4">
+                    Ваш доверенный консультант по недвижимости
+                </MudText>
+                <MudText Typo="Typo.body1" Align="Align.Start" Class="mb-4">
+                    Я помогаю купить, продать или сдать недвижимость в Москве и области более 25 лет.
+                    Мой опыт и индивидуальный подход обеспечивают комфортные и безопасные сделки любого уровня сложности.
+                </MudText>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" DropShadow="false" Class="mr-2">
+                    Получить консультацию
+                </MudButton>
+            </MudStack>
+        </MudItem>
+
+        <!-- Правая часть: изображение -->
+        <MudItem xs="12" md="6" Class="pa-8 py-sm-14 pe-sm-0 ps-sm-14 ps-md-20 py-md-20 pe-md-0">
+            <MudImage Src="/img/luiza-02.jpg"
+                      Alt="Луиза Алиниседова"
+                      Fluid
+                      ObjectFit="ObjectFit.Cover"
+                      Style="width:100%; max-height:500px; border-radius: 4px;" />
+        </MudItem>
+    </MudGrid>
+</Section>
+
+
+
+@* <Section Title="Luiza Estate">
     <MudText Typo="Typo.h1" Style="font-weight: 400;">
         Луиза Алиниседова
     </MudText>
     <MudText Typo="Typo.h5">Доверенный консультант по недвижимости</MudText>
-</Section>
+</Section> *@
 
-<Section>
+@* <Section>
     <MudPaper Width="100%" Elevation="0" Style="background:var(--mud-palette-primary)">
         <MudGrid Spacing="0">
             <MudItem Class="pa-8 pa-sm-14 pa-md-20 d-flex justify-center align-center" xs="12" md="6">
@@ -50,7 +84,7 @@
             </MudItem>
         </MudGrid>
     </MudPaper>
-</Section>
+</Section> *@
 
 <Section Title="Услуги">
     <MudText Typo="Typo.h5">
@@ -123,6 +157,9 @@
     <MudText Typo="Typo.h5">
         <a href="tel:+74957715514" style="font-size:2.7rem">+7 495 771 55 14</a>
     </MudText>
+    <MudText>
+        Свяжитесь со мной любым удобным способом, чтобы получить профессиональную помощь в решении ваших вопросов с недвижимостью.
+    </MudText>
 </Section>
 
 <Section Style="background:var(--mud-palette-text-primary); color:var(--mud-palette-primary-text)">
@@ -135,7 +172,7 @@
         © 2025 Луиза Алиниседова - Консультант по недвижимости - Россия, Москва
     </MudText>
     <MudText>
-        Сайт создан компанией <a href="https://bimo.tools/" style="color:var(--mud-palette-tertiary)">BIMO Tools</a>
+        Сайт создан <a href="https://bimo.tools/" style="color:var(--mud-palette-tertiary)">BIMO Tools</a>
     </MudText>
     
 </Section>
