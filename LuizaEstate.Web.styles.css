@@ -1,3 +1,13 @@
+/* /Components/Logo.razor.rz.scp.css */
+.logo[b-eqg6dwslh5] {
+    width: 180px;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .logo[b-eqg6dwslh5] {
+    }
+}
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-f1tlbxedxn] {
     position: relative;
