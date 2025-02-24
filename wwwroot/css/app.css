@@ -48,8 +48,29 @@ code {
     text-align: start;
 }
 
+.mud-button-outlined-size-large {
+    padding: 16px 32px !important;
+    min-width: 220px !important;
+}
+
+.mud-typography.mud-typography-h1 {
+    font-size: 7.1rem;
+}
+
 @media (max-width: 600px) {
     .mud-typography.mud-typography-h1 {
         font-size: 3.1rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .mud-typography.mud-typography-h1 {
+        font-size: 5.1rem;
+    }
+}
+
+@media (min-width: 960px) {
+    .mud-typography.mud-typography-h1 {
+        font-size: 7.1rem;
     }
 }

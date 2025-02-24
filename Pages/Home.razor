@@ -5,16 +5,25 @@
 <PageTitle>Luiza Estate</PageTitle>
 
 <Section>
-    <div>
-        <MudText Typo="Typo.h1" Style="font-weight: 400;">
-            Луиза
-        </MudText>
-        <MudText Typo="Typo.h1" Style="font-weight: 400;">
-            Алиниседова
-        </MudText>
-    </div>
+    <MudText Typo="Typo.h1" Style="font-weight: 500;">
+        <p>Луиза</p>
+        <p class="mt-n4">Алиниседова</p>
+    </MudText>
     <MudText Typo="Typo.h5">Доверенный консультант по недвижимости</MudText>
-    <MudButton Class="mt-10" Variant="Variant.Outlined" Size="Size.Large" Color="Color.Primary">Заказать консультацию</MudButton>
+    <MudGrid Class="mt-6" Justify="Justify.Center">
+        <MudItem>
+            <MudButton StartIcon="@Icons.Material.Outlined.Phone"
+                       Color="Color.Secondary" Variant="Variant.Outlined" Size="Size.Large" DropShadow="false" Href="tel:+74957715514">
+                Позвонить
+            </MudButton>
+        </MudItem>
+        <MudItem>
+            <MudButton StartIcon="@Icons.Custom.Brands.Telegram"
+                       Color="Color.Primary" Variant="Variant.Outlined" Size="Size.Large" DropShadow="false" Href="https://t.me/Luiza_real_estate">
+                Написать
+            </MudButton>
+        </MudItem>
+    </MudGrid>
 </Section>
 
 <Section>
@@ -23,34 +32,31 @@
             <MudItem Class="pa-8 pa-sm-14 pa-md-20 d-flex justify-center align-center" xs="12" md="6">
                 <MudImage Style="height:500px" Src="/img/luiza-02.jpg" Fluid ObjectFit="ObjectFit.Cover" Alt="Луиза Алиниседова"></MudImage>
             </MudItem>
-            <MudItem Class="pa-8 pa-sm-14 pa-md-20" xs="12" md="6" Style="color:var(--mud-palette-primary-text);display:flex;flex-direction:column;justify-content:center;">
+            <MudItem Class="pa-8 pa-sm-14 py-md-20 ps-md-0 pe-md-20" xs="12" md="6" Style="color:var(--mud-palette-primary-text);display:flex;flex-direction:column;justify-content:center;">
                 <MudText Class="mb-8" Typo="Typo.h4" Align="Align.Start">
                     Обо мне
                 </MudText>
                 <MudStack Style="text-align:start">
                     <MudText Typo="Typo.body2">
-                        Я — эксперт в сфере недвижимости с более чем 25-летним опытом работы.
-                        Обладая широкой компетенцией, успешно решаю задачи любой сложности в сфере недвижимости Москвы и Московской области,
-                        включая межрегиональные сделки и приобретение недвижимости за рубежом.
+                        Юрист-брокер с 25-летним опытом в сфере недвижимости Москвы и Московской области. 
+                        Моя практика охватывает широкий спектр операций, 
+                        от простых сделок купли-продажи до сложных межрегиональных обменов. 
+                        Обладаю глубокими знаниями рынка, что позволяет предлагать клиентам оптимальные решения, 
+                        соответствующие их потребностям и бюджету.
                     </MudText>
                     <MudText Typo="Typo.body2">
-                        С 2012 по 2019 год возглавляла компанию <span style="text-wrap:nowrap; font-weight:500">«АТЛАС-КОМ»</span>,
-                        после чего продолжила карьеру как индивидуальный предприниматель. 
-                        Любовь к профессии и постоянное стремление к совершенству позволили мне сохранить высокий уровень востребованности на рынке.
+                        Как практикующий специалист, я сопровождаю сделки на всех этапах, 
+                        обеспечивая юридическую чистоту и безопасность. 
+                        Мои брокерские услуги включают подбор недвижимости, оценку рыночной стоимости, 
+                        организацию показов и переговоров.
                     </MudText>
-                    @* <MudText Typo="Typo.body2">
-                        Мои услуги включают:
-                        <ul class="ps-5">
-                            <li>Продажу и покупку квартир на первичном и вторичном рынках</li>
-                            <li>Аренду жилой и загородной недвижимости</li>
-                            <li>Работа с коммерческой недвижимостью</li>
-                            <li>Сопровождение сделок по ипотеке и использованию материнского капитала</li>
-                            <li>Помощь в использовании Херсонского сертификата для оплаты жилья</li>
-                        </ul>
-                    </MudText> *@
                     <MudText Typo="Typo.body2">
-                        Выбирая меня, вы получаете не только профессионализм и опыт, но и надежного партнера,
-                        который сделает процесс сделки максимально комфортным и безопасным.
+                        Также оказываю экспертную помощь в оформлении ипотеки, использовании материнского капитала и жилищных субсидий. 
+                        Сотрудничаю с ведущими банками и страховыми компаниями, 
+                        что позволяет предлагать клиентам выгодные условия кредитования и страхования.                         
+                    </MudText>
+                    <MudText Typo="Typo.body2">
+                        Моя цель – сделать процесс покупки или продажи недвижимости максимально комфортным и эффективным для каждого клиента.
                     </MudText>
                 </MudStack>
             </MudItem>
@@ -141,7 +147,7 @@
         © 2025 Луиза Алиниседова - Консультант по недвижимости - Россия, Москва
     </MudText>
     <MudText>
-        Сайт создан компанией <a href="https://bimo.tools/" style="color:var(--mud-palette-tertiary)">BIMO Tools</a>
+        Сайт создан <a href="https://bimo.tools/" style="color:var(--mud-palette-tertiary)">BIMO Tools</a>
     </MudText>
     
 </Section>
