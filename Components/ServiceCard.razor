@@ -1,4 +1,4 @@
-﻿<MudStack Spacing="6" AlignItems="AlignItems.Center" Style="text-align:center">
+﻿<MudStack Spacing="6" AlignItems="AlignItems.Center">
 
     @CoverImage
 
@@ -7,7 +7,11 @@
         <MudText Typo="Typo.h6">@Title</MudText>
     }
 
-    @ChildContent
+    <MudText>
+        <ul class="ps-8" style="text-align:start">
+            @ChildContent
+        </ul>
+    </MudText>   
 
 </MudStack>
 
