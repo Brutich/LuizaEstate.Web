@@ -26,51 +26,15 @@ jobs:
       - name: Inspect GitHub Pages configuration
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "PAGES_CONFIGURATION"
-          gh api "repos/${GITHUB_REPOSITORY}/pages" \
-            --jq '{build_type, source, html_url, cname, status}' || true
+        run: echo "PAGES_CONFIGURATION"; gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '{build_type, source, html_url, cname, status}' || true
 
       - name: Probe live production
-        run: |
-          set -u
-          probe_url="https://luiza.estate/?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          curl -sS -L \
-            --connect-timeout 15 \
-            --max-time 60 \
-            -H 'Cache-Control: no-cache' \
-            -H 'Pragma: no-cache' \
-            -D live-headers.txt \
-            -o live-body.html \
-            "$probe_url"
-
-          echo "LIVE_RESPONSE_HEADERS"
-          cat live-headers.txt
-
-          if grep -q 'meta name="generator" content="Astro' live-body.html; then
-            echo "LIVE_STACK=astro"
-          elif grep -q '_framework/blazor.webassembly.js' live-body.html; then
-            echo "LIVE_STACK=blazor"
-          else
-            echo "LIVE_STACK=unknown"
-          fi
-
-          echo "LIVE_MARKERS"
-          grep -Eo 'meta name="generator" content="[^"]+"|_framework/blazor.webassembly.js|An unhandled error has occurred' live-body.html || true
-
-          for path in robots.txt sitemap.xml service-page/ 404.html; do
-            output="probe-${path//\//-}"
-            curl -sS -L \
-              --connect-timeout 15 \
-              --max-time 60 \
-              -H 'Cache-Control: no-cache' \
-              -H 'Pragma: no-cache' \
-              -o "$output" \
-              -w "PROBE path=/$path status=%{http_code} type=%{content_type} final=%{url_effective}\n" \
-              "https://luiza.estate/$path?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-            head -c 240 "$output" || true
-            echo
-          done
+        run: >-
+          body=$(mktemp);
+          code=$(curl -sS -L --connect-timeout 15 --max-time 60 -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' -o "$body" -w '%{http_code}' "https://luiza.estate/?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}");
+          if grep -q 'meta name="generator" content="Astro' "$body"; then stack=astro; elif grep -q '_framework/blazor.webassembly.js' "$body"; then stack=blazor; else stack=unknown; fi;
+          echo "PROBE path=/ status=${code} stack=${stack}";
+          for path in robots.txt sitemap.xml service-page/ 404.html; do code=$(curl -sS -L --connect-timeout 15 --max-time 60 -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' -o /dev/null -w '%{http_code}' "https://luiza.estate/${path}?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"); echo "PROBE path=/${path} status=${code}"; done
 
   build-and-deploy:
     runs-on: ubuntu-latest
