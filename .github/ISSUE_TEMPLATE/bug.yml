@@ -1,0 +1,65 @@
+name: Bug
+description: Ошибка или регрессия в существующем поведении
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Проблема
+      description: Что работает неправильно?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      placeholder: |
+        1. Открыть ...
+        2. Нажать ...
+        3. Увидеть ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактическое поведение
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Окружение
+      description: URL, браузер, устройство, ветка или commit SHA.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Скриншоты и логи
+      description: Не добавляйте секреты и персональные данные.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] Ошибка больше не воспроизводится
+        - [ ] Не появилось новой регрессии
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope и ограничения
+      description: Укажите, что можно менять и какой попутный рефакторинг не входит в задачу.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Проверка исправления
+    validations:
+      required: true

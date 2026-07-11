@@ -1,0 +1,57 @@
+name: Research / Decision
+description: Исследование, discovery или подготовка архитектурного решения
+title: "[Research]: "
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Вопрос
+      description: Какой вопрос должен быть исследован или какое решение подготовлено?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Контекст
+      description: Почему ответ нужен сейчас?
+    validations:
+      required: true
+  - type: textarea
+    id: known
+    attributes:
+      label: Что уже известно
+      description: Отделяйте подтверждённые факты от гипотез.
+  - type: textarea
+    id: unknown
+    attributes:
+      label: Неизвестные данные и ограничения
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Варианты для сравнения
+      description: Какие подходы должны быть рассмотрены?
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Критерии решения
+      description: Стоимость, SEO, сложность, поддержка, риски, скорость и другие критерии.
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: Ожидаемый результат
+      description: Исследовательский документ, рекомендация, декомпозиция или ADR.
+    validations:
+      required: true
+  - type: checkboxes
+    id: implementation
+    attributes:
+      label: Ограничение scope
+      options:
+        - label: Этот Issue не включает реализацию production-кода, если она явно не указана выше
+          required: true
