@@ -1,12 +1,19 @@
-name: Deploy Blazor WebAssembly to GitHub Pages
+name: Build and deploy Blazor WebAssembly
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
+
+concurrency:
+  group: github-pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -14,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
 
@@ -25,14 +32,17 @@ jobs:
         run: dotnet restore ./LuizaEstate.Web.csproj
 
       - name: Build
-        run: dotnet build ./LuizaEstate.Web.csproj --configuration Release
+        run: dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
 
       - name: Publish
         run: dotnet publish ./LuizaEstate.Web.csproj --configuration Release -o publish --no-build
 
+      - name: Add GitHub Pages SPA fallback
+        run: cp ./publish/wwwroot/index.html ./publish/wwwroot/404.html
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./publish/wwwroot
-          # Это указывает, что из папки "publish/wwwroot" файлы заливаются в ветку gh-pages
