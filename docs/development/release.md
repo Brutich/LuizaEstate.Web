@@ -27,11 +27,11 @@ https://luiza.estate
 
 Merge в `main` автоматически запускает `.github/workflows/deploy.yml`:
 
-1. restore;
-2. Release build;
-3. publish;
-4. подготовка SPA fallback;
-5. публикация `publish/wwwroot` в GitHub Pages.
+1. `npm ci`;
+2. `npm run check`;
+3. статическую Astro-сборку и post-build проверки;
+4. загрузку каталога `dist` как GitHub Pages artifact;
+5. публикацию artifact через GitHub Pages deployment.
 
 Отдельная ручная команда deploy не требуется.
 
@@ -49,7 +49,10 @@ Merge в `main` автоматически запускает `.github/workflows
 
 ## Sitemap
 
-`wwwroot/sitemap.xml` поддерживается вручную. При создании новой публичной канонической страницы её URL необходимо добавить в sitemap; служебные, дублирующиеся и redirect-маршруты не добавляются. После изменения нужно проверить валидность XML и наличие файла в publish-артефакте.
+`public/sitemap.xml` поддерживается вручную. При создании новой публичной канонической страницы её URL необходимо добавить в sitemap; служебные, дублирующиеся и redirect-маршруты не добавляются. После изменения нужно проверить валидность XML и наличие `dist/sitemap.xml`.
+
+Custom domain настраивается в GitHub Pages и дополнительно сохраняется в `public/CNAME`. После
+release нужно проверить оба условия и открытие `https://luiza.estate`.
 
 ## Откат
 

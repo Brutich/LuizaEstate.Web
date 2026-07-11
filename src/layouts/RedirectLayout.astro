@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://luiza.estate/" />
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body>
+    <p>Страница перемещена. <a href="/">Перейти на главную Luiza Estate</a>.</p>
+  </body>
+</html>

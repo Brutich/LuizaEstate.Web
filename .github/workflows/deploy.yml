@@ -1,4 +1,4 @@
-name: Build and deploy Blazor WebAssembly
+name: Build and deploy Astro site
 
 on:
   push:
@@ -10,40 +10,57 @@ on:
       - develop
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: github-pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          dotnet-version: '9.0.x'
+          node-version: "22"
+          cache: npm
 
-      - name: Restore dependencies
-        run: dotnet restore ./LuizaEstate.Web.csproj
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check
+        run: npm run check
 
       - name: Build
-        run: dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
+        run: npm run build
 
-      - name: Publish
-        run: dotnet publish ./LuizaEstate.Web.csproj --configuration Release -o publish --no-build
-
-      - name: Add GitHub Pages SPA fallback
-        run: cp ./publish/wwwroot/index.html ./publish/wwwroot/404.html
-
-      - name: Deploy to GitHub Pages
+      - name: Configure GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./publish/wwwroot
+          path: dist
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const description = "Запрошенная страница Luiza Estate не найдена.";
+---
+
+<BaseLayout
+  title="Страница не найдена | Luiza Estate"
+  description={description}
+  canonical="https://luiza.estate/404.html"
+  robots="noindex, follow"
+>
+  <section class="not-found section">
+    <div class="container">
+      <p class="eyebrow">Ошибка 404</p>
+      <h1>Страница не найдена</h1>
+      <p>Возможно, адрес изменился или был введён с ошибкой.</p>
+      <a class="button button--primary" href="/">Вернуться на главную</a>
+    </div>
+  </section>
+</BaseLayout>
