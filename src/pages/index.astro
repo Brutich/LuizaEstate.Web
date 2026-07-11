@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Луиза Алиниседова — риэлтор в Москве | Luiza Estate";
 const description =
-  "Luiza Estate - Луиза Алиниседова - доверенный консультант по недвижимости. Предоставляю риэлторские услуги на рынке недвижимости по Москве (Россия) и области. Услуги по покупке и продаже недвижимости на первичном, вторичном рынке, по аренде квартир. Проверяю перед покупкой недвижимость и документы.";
+  "Luiza Estate - Луиза Алиниседова - доверенный консультант по недвижимости. Предоставляю риелторские услуги на рынке недвижимости по Москве (Россия) и области. Услуги по покупке и продаже недвижимости на первичном, вторичном рынке, по аренде квартир. Проверяю перед покупкой недвижимость и документы.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -89,10 +89,13 @@ const structuredData = [
   <section class="hero section">
     <div class="container hero__inner">
       <h1 class="hero__title">
-        <span>Луиза</span>
-        <span>Алиниседова</span>
+        <span class="hero__role">Риелтор и юрист-брокер</span>
+        <span class="hero__name">Луиза Алиниседова</span>
+        <span class="hero__location">Москва и Московская область</span>
       </h1>
-      <p class="hero__subtitle">Доверенный консультант по недвижимости</p>
+      <p class="hero__subtitle">
+        Покупка, продажа и аренда недвижимости с юридической проверкой и сопровождением сделки
+      </p>
       <div class="hero__actions">
         <a class="button button--secondary" href="tel:+74957715514" aria-label="Позвонить Луизе">
           <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -208,3 +211,78 @@ const structuredData = [
     </div>
   </footer>
 </BaseLayout>
+
+<style>
+  .hero__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: inherit;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  .hero__title span + span {
+    margin-top: 0;
+  }
+
+  .hero__role {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero__name {
+    margin-top: 12px !important;
+    font-size: clamp(4.6rem, 8.2vw, 7.1rem);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.01562em;
+  }
+
+  .hero__location {
+    margin-top: 18px !important;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.334;
+  }
+
+  .hero__subtitle {
+    max-width: 840px;
+    margin-top: 20px;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 600px) and (max-width: 959px) {
+    .hero__name {
+      font-size: 5.1rem;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .hero__role {
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+    }
+
+    .hero__name {
+      margin-top: 10px !important;
+      font-size: 3.1rem;
+      line-height: 1.06;
+    }
+
+    .hero__location {
+      margin-top: 14px !important;
+      font-size: 1.125rem;
+    }
+
+    .hero__subtitle {
+      max-width: 360px;
+      font-size: 1rem;
+    }
+  }
+</style>

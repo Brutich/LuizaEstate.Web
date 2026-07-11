@@ -18,6 +18,9 @@ await Promise.all(requiredFiles.map((path) => access(new URL(path, root))));
 const index = await readFile(new URL("index.html", root), "utf8");
 const requiredIndexContent = [
   "Луиза Алиниседова",
+  "Риелтор и юрист-брокер",
+  "Москва и Московская область",
+  "Покупка, продажа и аренда недвижимости с юридической проверкой и сопровождением сделки",
   "Юрист-брокер с 25-летним опытом",
   "https://luiza.estate/",
   "application/ld+json",
@@ -138,4 +141,4 @@ async function assertNoBlazorArtifacts(directory) {
 }
 
 await assertNoBlazorArtifacts(fileURLToPath(root));
-console.log("Static output, contacts, and JSON-LD verification passed.");
+console.log("Static output, hero, contacts, and JSON-LD verification passed.");
