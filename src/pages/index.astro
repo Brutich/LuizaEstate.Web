@@ -1,0 +1,117 @@
+---
+import ServiceCard from "../components/ServiceCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Луиза Алиниседова — риэлтор в Москве | Luiza Estate";
+const description =
+  "Luiza Estate - Луиза Алиниседова - доверенный консультант по недвижимости. Предоставляю риэлторские услуги на рынке недвижимости по Москве (Россия) и области. Услуги по покупке и продаже недвижимости на первичном, вторичном рынке, по аренде квартир. Проверяю перед покупкой недвижимость и документы.";
+const structuredData = [
+  {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    url: "https://luiza.estate/",
+  },
+  {
+    "@context": "https://schema.org/",
+    "@type": "LocalBusiness",
+    name: "Luiza Alinisedova",
+    url: "https://luiza.estate",
+    image: "https://luiza.estate/siteicon1.png",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "RU",
+      addressLocality: "Moscow",
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://luiza.estate/"
+  structuredData={structuredData}
+>
+  <section class="hero section">
+    <div class="container hero__inner">
+      <p class="eyebrow">Доверенный консультант по недвижимости</p>
+      <h1><span>Луиза</span><span>Алиниседова</span></h1>
+      <div class="hero__actions">
+        <a class="button button--secondary" href="tel:+74957715514">Позвонить</a>
+        <a class="button button--primary" href="https://t.me/Luiza_real_estate">Написать</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container about__inner">
+      <div class="about__photo">
+        <img src="/img/luiza-02.jpg" alt="Луиза Алиниседова" width="1080" height="1350" loading="eager" />
+      </div>
+      <div class="about__content">
+        <h2>Обо мне</h2>
+        <p>
+          Юрист-брокер с 25-летним опытом в сфере недвижимости Москвы и Московской области.
+          Моя практика охватывает широкий спектр операций, от простых сделок купли-продажи до
+          сложных межрегиональных обменов. Обладаю глубокими знаниями рынка, что позволяет
+          предлагать клиентам оптимальные решения, соответствующие их потребностям и бюджету.
+        </p>
+        <p>
+          Как практикующий специалист, я сопровождаю сделки на всех этапах, обеспечивая
+          юридическую чистоту и безопасность. Мои брокерские услуги включают подбор недвижимости,
+          оценку рыночной стоимости, организацию показов и переговоров.
+        </p>
+        <p>
+          Также оказываю экспертную помощь в оформлении ипотеки, использовании материнского
+          капитала и жилищных субсидий. Сотрудничаю с ведущими банками и страховыми компаниями, что
+          позволяет предлагать клиентам выгодные условия кредитования и страхования.
+        </p>
+        <p>
+          Моя цель – сделать процесс покупки или продажи недвижимости максимально комфортным и
+          эффективным для каждого клиента.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services section">
+    <div class="container">
+      <h2>Услуги</h2>
+      <p class="section-lead">Опыт, которому вы можете доверять</p>
+      <div class="services__grid">
+        <ServiceCard title="Консультации" symbol="consulting">
+          Предоставляю консультации по вопросам налогов, прав собственности и рефинансирования
+          долга. А также провожу оценку стоимости недвижимости и анализ рынка.
+        </ServiceCard>
+        <ServiceCard title="Сделки с недвижимостью" symbol="property">
+          Помогаю в сдаче и аренде жилых и нежилых помещений. Консультирую по вопросам покупки и
+          аренды коммерческой недвижимости.
+        </ServiceCard>
+        <ServiceCard title="Cопровождение" symbol="support">
+          Осуществляю проверку юридической чистоты объектов перед покупкой. Сопровождаю вас до
+          момента подписания акта приема-передачи.
+        </ServiceCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts section">
+    <div class="container">
+      <h2>Контакты</h2>
+      <a class="contacts__email" href="mailto:atlas-com@yandex.ru">atlas-com@yandex.ru</a>
+      <a class="contacts__phone" href="tel:+74957715514">+7 495 771 55 14</a>
+    </div>
+  </section>
+
+  <footer class="site-footer section">
+    <div class="container site-footer__inner">
+      <nav class="social-links" aria-label="Социальные сети">
+        <a href="https://t.me/+7-Qh5us1_043ZTgy">Telegram</a>
+        <a href="https://www.instagram.com/luiza_estate/">Instagram</a>
+        <a href="https://vk.com/lsedova2019">VK</a>
+      </nav>
+      <p>© 2025 Луиза Алиниседова - Консультант по недвижимости - Россия, Москва</p>
+      <p>Сайт создан <a href="https://bimo.tools/">BIMO Tools</a></p>
+    </div>
+  </footer>
+</BaseLayout>

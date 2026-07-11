@@ -16,24 +16,25 @@ Luiza Estate — продукт вокруг персонального брен
 
 ## Технологии
 
-- .NET 9;
-- Blazor WebAssembly;
-- MudBlazor;
+- Node.js 22;
+- Astro 6;
+- TypeScript в strict-режиме;
+- обычный CSS без UI-фреймворка;
 - GitHub Pages;
 - GitHub Actions.
 
 ## Команды проверки
 
 ```bash
-dotnet restore ./LuizaEstate.Web.csproj
-dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
-dotnet publish ./LuizaEstate.Web.csproj --configuration Release -o publish --no-build
+npm ci
+npm run check
+npm run build
 ```
 
 Для локальной разработки:
 
 ```bash
-dotnet watch run
+npm run dev
 ```
 
 ## Правила работы

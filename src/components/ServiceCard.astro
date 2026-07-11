@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  symbol: "consulting" | "property" | "support";
+}
+
+const { title, symbol } = Astro.props;
+---
+
+<article class="service-card">
+  <div class:list={["service-symbol", `service-symbol--${symbol}`]} aria-hidden="true">
+    <span></span>
+  </div>
+  <h3>{title}</h3>
+  <div class="service-card__body">
+    <slot />
+  </div>
+</article>

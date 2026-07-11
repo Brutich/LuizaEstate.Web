@@ -2,14 +2,16 @@
 
 ## Требования
 
-- .NET 9 SDK;
+- Node.js 22;
+- npm;
 - Git;
 - современный браузер.
 
 Проверка SDK:
 
 ```bash
-dotnet --version
+node --version
+npm --version
 ```
 
 ## Запуск
@@ -17,8 +19,8 @@ dotnet --version
 Из корня репозитория:
 
 ```bash
-dotnet restore
-dotnet watch run
+npm ci
+npm run dev
 ```
 
 Откройте адрес, указанный в консоли. Остановить сервер можно сочетанием `Ctrl+C`.
@@ -26,18 +28,20 @@ dotnet watch run
 Обычный запуск без автоматической перезагрузки:
 
 ```bash
-dotnet run
+npm run preview
 ```
 
 ## Проверка перед Pull Request
 
 ```bash
-dotnet restore ./LuizaEstate.Web.csproj
-dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
-dotnet publish ./LuizaEstate.Web.csproj --configuration Release -o publish --no-build
+npm ci
+npm run check
+npm run build
 ```
 
-Каталог `publish` является локальным результатом проверки и не должен коммититься.
+Каталог `dist` является локальным результатом проверки и не должен коммититься. Команда
+`npm run build` дополнительно проверяет обязательные файлы и метаданные, legacy redirect-страницы
+и отсутствие Blazor-артефактов.
 
 ## Ручной smoke test
 
