@@ -10,7 +10,8 @@ on:
       - develop
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
 
 concurrency:
   group: github-pages-${{ github.ref }}
@@ -38,6 +39,57 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Inspect GitHub Pages configuration
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "PAGES_CONFIGURATION"
+          gh api "repos/${GITHUB_REPOSITORY}/pages" \
+            --jq '{build_type, source, html_url, cname, status}' || true
+
+      - name: Probe live production
+        if: github.event_name == 'pull_request'
+        run: |
+          set -u
+          probe_url="https://luiza.estate/?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          curl -sS -L \
+            --connect-timeout 15 \
+            --max-time 60 \
+            -H 'Cache-Control: no-cache' \
+            -H 'Pragma: no-cache' \
+            -D live-headers.txt \
+            -o live-body.html \
+            "$probe_url"
+
+          echo "LIVE_RESPONSE_HEADERS"
+          cat live-headers.txt
+
+          if grep -q 'meta name="generator" content="Astro' live-body.html; then
+            echo "LIVE_STACK=astro"
+          elif grep -q '_framework/blazor.webassembly.js' live-body.html; then
+            echo "LIVE_STACK=blazor"
+          else
+            echo "LIVE_STACK=unknown"
+          fi
+
+          echo "LIVE_MARKERS"
+          grep -Eo 'meta name="generator" content="[^"]+"|_framework/blazor.webassembly.js|An unhandled error has occurred' live-body.html || true
+
+          for path in robots.txt sitemap.xml service-page/ 404.html; do
+            output="probe-${path//\//-}"
+            curl -sS -L \
+              --connect-timeout 15 \
+              --max-time 60 \
+              -H 'Cache-Control: no-cache' \
+              -H 'Pragma: no-cache' \
+              -o "$output" \
+              -w "PROBE path=/$path status=%{http_code} type=%{content_type} final=%{url_effective}\n" \
+              "https://luiza.estate/$path?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            head -c 240 "$output" || true
+            echo
+          done
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
