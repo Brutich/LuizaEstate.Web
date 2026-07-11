@@ -18,10 +18,11 @@ https://luiza.estate
 
 1. Убедиться, что все выбранные PR слиты в `develop`.
 2. Проверить, что CI в `develop` проходит успешно.
-3. Выполнить локальный smoke test или проверить preview, если он настроен.
+3. Выполнить [release smoke-checklist](release-smoke-checklist.md) на production build или preview.
 4. Создать PR `develop → main`.
 5. В описании перечислить пользовательские изменения, риски и способ отката.
-6. После успешного CI и review выполнить merge.
+6. Зафиксировать результаты smoke test комментарием в release PR.
+7. После успешного CI, review и явного решения мейнтейнера выполнить merge.
 
 ## Production-деплой
 
@@ -37,22 +38,22 @@ Merge в `main` автоматически запускает `.github/workflows
 
 ## Проверка после выпуска
 
-Проверить на `https://luiza.estate`:
+Повторить production-раздел [release smoke-checklist](release-smoke-checklist.md) на `https://luiza.estate`, включая:
 
 - главную и изменённые страницы;
 - desktop и mobile;
 - контакты и CTA;
 - изображения и стили;
-- прямое открытие маршрутов;
+- legacy redirects и 404;
 - отсутствие очевидных ошибок в браузере;
-- корректность title, description и structured data, если они менялись.
+- корректность title, description, canonical и structured data;
+- доступность `robots.txt` и `sitemap.xml`.
 
 ## Sitemap
 
 `public/sitemap.xml` поддерживается вручную. При создании новой публичной канонической страницы её URL необходимо добавить в sitemap; служебные, дублирующиеся и redirect-маршруты не добавляются. После изменения нужно проверить валидность XML и наличие `dist/sitemap.xml`.
 
-Custom domain настраивается в GitHub Pages и дополнительно сохраняется в `public/CNAME`. После
-release нужно проверить оба условия и открытие `https://luiza.estate`.
+Custom domain настраивается в GitHub Pages и дополнительно сохраняется в `public/CNAME`. После release нужно проверить оба условия и открытие `https://luiza.estate`.
 
 ## Откат
 
