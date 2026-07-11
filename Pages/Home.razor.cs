@@ -1,7 +1,23 @@
+using Microsoft.AspNetCore.Components;
+
 namespace LuizaEstate.Web.Pages;
 
 public partial class Home
 {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    protected override void OnParametersSet()
+    {
+        var currentPath = new Uri(NavigationManager.Uri).AbsolutePath.TrimEnd('/');
+        var canonicalPath = new Uri(NavigationManager.BaseUri).AbsolutePath.TrimEnd('/');
+
+        if (!string.Equals(currentPath, canonicalPath, StringComparison.OrdinalIgnoreCase))
+        {
+            NavigationManager.NavigateTo(NavigationManager.BaseUri, replace: true);
+        }
+    }
+
     const string vkIcon = """
         <path d="M22.9566 15.9194C22.434 15.2864 21.8402 14.7191 21.266 14.1704C21.0618 13.9753 20.8506 13.7736 20.6471 13.573C20.0628 12.9965 20.0415 12.7799 20.5041 
         12.125C20.8242 11.6736 21.1636 11.2216 21.4917 10.7845C21.7894 10.3879 22.0973 9.97775 22.3923 9.56629L22.4529 9.48169C23.0168 8.6943 23.5999 7.88011 23.9103
