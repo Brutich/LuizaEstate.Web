@@ -18,30 +18,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  diagnose-production:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check
-        run: npm run check
-
-      - name: Build
-        run: npm run build
-
       - name: Inspect GitHub Pages configuration
-        if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -50,7 +32,6 @@ jobs:
             --jq '{build_type, source, html_url, cname, status}' || true
 
       - name: Probe live production
-        if: github.event_name == 'pull_request'
         run: |
           set -u
           probe_url="https://luiza.estate/?diagnostic=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
@@ -90,6 +71,28 @@ jobs:
             head -c 240 "$output" || true
             echo
           done
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
