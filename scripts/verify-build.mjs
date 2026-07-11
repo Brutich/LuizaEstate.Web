@@ -18,12 +18,21 @@ await Promise.all(requiredFiles.map((path) => access(new URL(path, root))));
 const index = await readFile(new URL("index.html", root), "utf8");
 const requiredIndexContent = [
   "Луиза Алиниседова",
+  "Риелтор и юрист-брокер",
+  "Москва и Московская область",
+  "Покупка, продажа и аренда недвижимости с юридической проверкой и сопровождением сделки",
   "Юрист-брокер с 25-летним опытом",
   "https://luiza.estate/",
   "application/ld+json",
   "G-9C9EZBF53F",
   "tel:+74957715514",
   "mailto:atlas-com@yandex.ru",
+  "https://t.me/Luiza_real_estate",
+  "https://t.me/Luiza_estate_official",
+  "https://www.instagram.com/luiza_estate/",
+  "https://vk.com/lsedova2019",
+  "aria-label=\"Написать Луизе в Telegram\"",
+  "aria-label=\"Telegram-канал Luiza Estate\"",
 ];
 
 for (const value of requiredIndexContent) {
@@ -32,7 +41,12 @@ for (const value of requiredIndexContent) {
   }
 }
 
-for (const forbidden of ["SearchAction", "blog-feed.xml", "blazor.webassembly.js"]) {
+for (const forbidden of [
+  "SearchAction",
+  "blog-feed.xml",
+  "blazor.webassembly.js",
+  "https://t.me/+7-Qh5us1_043ZTgy",
+]) {
   if (index.includes(forbidden)) {
     throw new Error(`dist/index.html contains forbidden content: ${forbidden}`);
   }
@@ -127,4 +141,4 @@ async function assertNoBlazorArtifacts(directory) {
 }
 
 await assertNoBlazorArtifacts(fileURLToPath(root));
-console.log("Static output and JSON-LD verification passed.");
+console.log("Static output, hero, contacts, and JSON-LD verification passed.");
