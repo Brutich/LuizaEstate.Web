@@ -7,21 +7,75 @@ const description =
   "Luiza Estate - Луиза Алиниседова - доверенный консультант по недвижимости. Предоставляю риэлторские услуги на рынке недвижимости по Москве (Россия) и области. Услуги по покупке и продаже недвижимости на первичном, вторичном рынке, по аренде квартир. Проверяю перед покупкой недвижимость и документы.";
 const structuredData = [
   {
-    "@context": "https://schema.org/",
-    "@type": "WebSite",
-    url: "https://luiza.estate/",
-  },
-  {
-    "@context": "https://schema.org/",
-    "@type": "LocalBusiness",
-    name: "Luiza Alinisedova",
-    url: "https://luiza.estate",
-    image: "https://luiza.estate/siteicon1.png",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "RU",
-      addressLocality: "Moscow",
-    },
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://luiza.estate/#website",
+        url: "https://luiza.estate/",
+        name: "Luiza Estate",
+        inLanguage: "ru-RU",
+        publisher: { "@id": "https://luiza.estate/#real-estate-agent" },
+      },
+      {
+        "@type": "Person",
+        "@id": "https://luiza.estate/#luiza-alinisedova",
+        name: "Луиза Алиниседова",
+        jobTitle: "Риелтор и юрист-брокер",
+        description: "Риелтор и юрист-брокер с опытом работы в недвижимости более 25 лет.",
+        url: "https://luiza.estate/",
+        image: "https://luiza.estate/img/luiza-02.jpg",
+        telephone: ["+7 495 771-55-14", "+7 926 224-92-31"],
+        email: "atlas-com@yandex.ru",
+        sameAs: [
+          "https://t.me/Luiza_real_estate",
+          "https://t.me/Luiza_estate_official",
+          "https://www.instagram.com/luiza_estate/",
+          "https://vk.com/lsedova2019",
+        ],
+        worksFor: { "@id": "https://luiza.estate/#real-estate-agent" },
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://luiza.estate/#real-estate-agent",
+        name: "Luiza Estate",
+        alternateName: "Луиза Алиниседова — риелтор и юрист-брокер",
+        description:
+          "Персональная практика Луизы Алиниседовой: операции с недвижимостью, юридическая проверка и сопровождение сделок, ипотечные и страховые услуги.",
+        url: "https://luiza.estate/",
+        image: "https://luiza.estate/img/luiza-02.jpg",
+        telephone: ["+7 495 771-55-14", "+7 926 224-92-31"],
+        email: "atlas-com@yandex.ru",
+        employee: { "@id": "https://luiza.estate/#luiza-alinisedova" },
+        areaServed: [
+          { "@type": "City", name: "Москва" },
+          { "@type": "AdministrativeArea", name: "Московская область" },
+          { "@type": "City", name: "Санкт-Петербург" },
+          { "@type": "City", name: "Калининград" },
+          "Россия — дистанционные консультации",
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Услуги",
+          itemListElement: [
+            "Покупка недвижимости",
+            "Продажа недвижимости",
+            "Аренда и сдача недвижимости",
+            "Юридическая проверка объекта и документов",
+            "Сопровождение сделки",
+            "Оценка рыночной стоимости недвижимости",
+            "Помощь с ипотекой и рефинансированием",
+            "Сделки с материнским капиталом и жилищными субсидиями",
+            "Коммерческая недвижимость",
+            "Оформление полисов ипотечного страхования",
+            "Оформление полисов КАСКО и ОСАГО",
+          ].map((name) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name },
+          })),
+        },
+      },
+    ],
   },
 ];
 ---
