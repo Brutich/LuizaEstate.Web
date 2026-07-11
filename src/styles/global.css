@@ -72,7 +72,6 @@ h2 {
   position: sticky;
   z-index: 20;
   top: 0;
-  border-bottom: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.96);
 }
 
@@ -85,14 +84,23 @@ h2 {
 }
 
 .brand {
-  display: block;
+  display: flex;
+  min-height: 72px;
+  align-items: center;
   width: min(180px, 48vw);
+  line-height: 0;
 }
 
-.brand .logo,
+.brand .logo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
 .brand svg {
   display: block;
   width: 100%;
+  height: auto;
 }
 
 .header-phone {
@@ -428,6 +436,7 @@ h2 {
   }
 
   .brand {
+    min-height: 64px;
     width: 138px;
   }
 
