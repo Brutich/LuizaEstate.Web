@@ -24,9 +24,9 @@
 ## Локальные проверки
 
 ```bash
-dotnet restore ./LuizaEstate.Web.csproj
-dotnet build ./LuizaEstate.Web.csproj --configuration Release --no-restore
-dotnet publish ./LuizaEstate.Web.csproj --configuration Release -o publish --no-build
+npm ci
+npm run check
+npm run build
 ```
 
 Для визуального изменения также проверить:
