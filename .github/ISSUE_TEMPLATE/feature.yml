@@ -1,0 +1,77 @@
+name: Feature
+description: Новая пользовательская или техническая возможность
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Опишите одну проверяемую задачу. Крупную инициативу сначала разбейте на отдельные Issues.
+  - type: textarea
+    id: context
+    attributes:
+      label: Контекст
+      description: Почему эта задача нужна и с каким продуктовым документом или наблюдением она связана?
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Цель
+      description: Какой конкретный результат должен появиться?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Перечислите проверяемые условия готовности.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Что входит в задачу?
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: Что явно не должно выполняться в этом Issue?
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Связанные документы и файлы
+      description: Укажите roadmap, исследования, ADR и предполагаемые файлы.
+  - type: textarea
+    id: validation
+    attributes:
+      label: Проверка
+      description: Как проверить результат локально и в браузере?
+    validations:
+      required: true
+  - type: dropdown
+    id: documentation
+    attributes:
+      label: Влияние на документацию
+      options:
+        - Требуется обновление документации
+        - Обновление документации не требуется
+        - Нужно определить в ходе работы
+    validations:
+      required: true
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Готовность задачи
+      options:
+        - label: Задача описывает один логический результат
+          required: true
+        - label: Неизвестные факты отмечены как гипотезы или вопросы
+          required: true
