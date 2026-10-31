@@ -6,9 +6,14 @@ This folder preserves a standalone interactive HTML prototype of a proposed Luiz
 
 ## Files
 
-- [index.html](index.html) — self-contained HTML prototype with CSS, JavaScript and embedded example images. No build, local server or external assets required.
+- [index.html](index.html) — standalone HTML prototype with embedded CSS, JavaScript and example images. No build or local server required. Google Fonts are an optional online dependency; fallback fonts work offline.
+- [desktop.jpg](desktop.jpg) and [mobile.jpg](mobile.jpg) — compressed screenshots for quick review.
 
 ## Preview
+
+![Desktop preview](desktop.jpg)
+
+![Mobile preview](mobile.jpg)
 
 Download `index.html` and open it in a desktop or mobile browser. The GitHub source viewer does not execute HTML, so use the downloaded file to see the layout and interactions.
 
