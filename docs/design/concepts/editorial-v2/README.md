@@ -10,7 +10,7 @@ Editorial v1 demonstrated the visual language (warm ivory, deep green, copper de
 
 Download [index.html](index.html) and open it in a modern browser; no build or app runtime required. The **official approved portrait** is embedded directly in the HTML. The About section temporarily uses a user-supplied photo of olive branches via an external CDN for visual evaluation; internet access is required and hotlink availability is not guaranteed. Google Fonts improves typography when online; system font fallback works offline.
 
-The prototype features responsive navigation, expandable service descriptions, tabs for example customer situations, an interactive 4-step timeline, FAQ accordions and direct Telegram/telephone/email links.
+The prototype features responsive navigation, expandable service descriptions, a four-step process, FAQ accordions and direct Telegram/telephone/email links.
 
 ## Confirmed source facts
 
@@ -28,9 +28,9 @@ Source of truth: [Founder research](../../../product/discovery/founder-research.
 1. Hero immediately identifies Luiza by name, role, location, experience, with direct ways to reach her.
 2. Four client-facing service categories separate selling, buying, complex transactions and legal checks.
 3. Professional profiles allow visitors to check credentials and reviews on their respective platforms, without copying potentially stale ratings.
-4. The dark process and contact sections use two different inline SVG olive-branch silhouettes as decorative backgrounds. The process branch enters from the upper left; the contact branch rises from the lower right behind the contact cards. Both are `aria-hidden`, require no image downloads, and have reduced opacity on mobile.
-5. The three situation tabs illustrate *possible client questions*, **not actual completed cases**.
-6. The interactive process uses one CSS coordinate for timeline dots and the connecting line; they are centrally aligned.
+4. The About image uses a circular CSS `clip-path` plus a duplicate image layer with an inline SVG alpha mask. A luminance-key filter exposes darker foliage outside the circle while a vertical gradient fades out background details. The original image remains the fallback if SVG masking is unsupported. This is a visual experiment and should be checked against the original photo in target browsers before production use.
+5. The dark process and contact sections use two different inline SVG olive-branch silhouettes as decorative backgrounds. The process branch enters from the upper left; the contact branch rises from the lower right behind the contact cards. Both are `aria-hidden`, require no image downloads, and have reduced opacity on mobile.
+6. The four-step process is intentionally static and concise.
 7. Direct calls/Telegram replace the earlier non-submitting sample contact form. The mockup does not collect or process form data.
 8. A persistent mobile contact bar reduces friction.
 
@@ -39,7 +39,7 @@ Source of truth: [Founder research](../../../product/discovery/founder-research.
 - No invented client stories, promises, prices, case outcomes or review quotes.
 - Service descriptions and process are still editorial proposals, not approved detailed terms of engagement.
 - Do not use this HTML as an Astro drop-in or deploy directly. Any implementation requires separate scope and product approval, legal copy verification, accessibility/performance review, and analytics.
-- Portrait is approved; decorative interior photography is **illustrative**, not a verified listing.
+- The portrait is approved; other imagery is illustrative, not a verified listing.
 - About-section image **(visual test only):** [user-supplied olive-branches photo](https://img.ltwebstatic.com/v4/j/spmp/2026/06/07/96/1780826463c519018503ece5ab357674a2667fe6c5_thumbnail_750x999.jpg), displayed from a third-party CDN. Licensing/redistribution rights and permanent availability are **not confirmed**. Do not migrate this source directly to production without permission and a suitable high-quality asset.
 - Suggested next stage: validate segment and preferred service priorities with Luiza, collect permissioned reviews and factual case studies; then implement the chosen structure as Astro components.
 
@@ -47,8 +47,9 @@ Source of truth: [Founder research](../../../product/discovery/founder-research.
 
 Browser smoke checks at 1440px and 390px:
 - No horizontal document overflow.
-- Service expansion, situation tabs, 4-step timeline and mobile navigation respond to user actions.
+- Service expansion and mobile navigation respond to user actions; the four-step timeline is static.
 - FAQ is built with native details/summary.
+- Circular About photo and masked branch overlay are experimental; browser and image-loading verification is needed before production migration.
 - Official portrait is embedded in the repository version of the prototype (the independent local preview may load that image from the production site).
 
 Related: [Issue #51](https://github.com/Brutich/LuizaEstate.Web/issues/51), [Editorial v1 PR #50](https://github.com/Brutich/LuizaEstate.Web/pull/50).
