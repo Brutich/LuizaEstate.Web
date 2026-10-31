@@ -106,7 +106,7 @@ toggle.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
 $$('#mobileNav a').forEach(x=>x.addEventListener('click',()=>setMenu(false)));
 window.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
 const serviceGrid=$('.service-grid'),servicePanel=$('#service-details'),serviceTitle=$('#service-details-title');
-const serviceCards=$('.service-card'),serviceButtons=$('.service-trigger'),serviceSections=$('.service-expanded');
+const serviceCards=$$('.service-card'),serviceButtons=$$('.service-trigger'),serviceSections=$$('.service-expanded');
 let activeService=null;
 function positionServicePanel(card){
  const cols=getComputedStyle(serviceGrid).gridTemplateColumns.split(/\s+/).filter(Boolean).length;
