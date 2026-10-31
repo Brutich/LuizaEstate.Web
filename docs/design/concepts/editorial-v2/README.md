@@ -8,7 +8,7 @@ Editorial v1 demonstrated the visual language (warm ivory, deep green, copper de
 
 ## Preview
 
-Download [index.html](index.html) and open it in a modern browser; no build or app runtime required. The **official approved portrait** is embedded directly in the HTML alongside illustrative interior imagery. Google Fonts improves typography when online; system font fallback works offline.
+Download [index.html](index.html) and open it in a modern browser; no build or app runtime required. The **official approved portrait** is embedded directly in the HTML. The About section uses a full-resolution **real interior photograph** from Unsplash (loaded over HTTPS); internet access is required to display this decorative photo. Google Fonts improves typography when online; system font fallback works offline.
 
 The prototype features responsive navigation, expandable service descriptions, tabs for example customer situations, an interactive 4-step timeline, FAQ accordions and direct Telegram/telephone/email links.
 
@@ -39,6 +39,7 @@ Source of truth: [Founder research](../../../product/discovery/founder-research.
 - Service descriptions and process are still editorial proposals, not approved detailed terms of engagement.
 - Do not use this HTML as an Astro drop-in or deploy directly. Any implementation requires separate scope and product approval, legal copy verification, accessibility/performance review, and analytics.
 - Portrait is approved; decorative interior photography is **illustrative**, not a verified listing.
+- About-section photograph: [Caroline Badran, “Dining table with vase and flowering branches”](https://unsplash.com/photos/dining-table-with-vase-and-flowering-branches-AH1qU8YkyaQ), published under the [Unsplash License](https://unsplash.com/license) (commercial reuse permitted, attribution appreciated). It is a third-party CDN asset for the standalone **prototype**, not yet a locally optimized production asset. During Astro migration, download the licensed image, optimize it and serve it locally, retaining this source credit.
 - Suggested next stage: validate segment and preferred service priorities with Luiza, collect permissioned reviews and factual case studies; then implement the chosen structure as Astro components.
 
 ## Validation
