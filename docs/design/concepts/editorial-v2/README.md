@@ -20,6 +20,7 @@ The prototype features responsive navigation, expandable service descriptions, t
 - Contact: `+7 495 771-55-14`, `atlas-com@yandex.ru`, [Telegram](https://t.me/Luiza_real_estate).
 - Approved public portrait source: `public/img/luiza-02.jpg` (same repository), embedded in the mockup.
 - Independent professional profile links: [Циан](https://www.cian.ru/agents/164114/) and [Домклик](https://agencies.domclick.ru/agent/866780). Ratings and quotations from reviews are **deliberately omitted**.
+- Brand marks in the review-link cards load from [Циан's official press-center wordmark](https://corp.cian.ru/static/img/services/logo.png) and [Домклик's public brand-page image](https://domclick.promo.page/promo). They are **external references** (internet required); no trademark files are committed to the repository. Their use does not imply platform endorsement or partnership.
 
 Source of truth: [Founder research](../../../product/discovery/founder-research.md) and public professional profiles (links above).
 
@@ -38,6 +39,7 @@ Source of truth: [Founder research](../../../product/discovery/founder-research.
 - No invented client stories, promises, prices, case outcomes or review quotes.
 - Service descriptions and process are still editorial proposals, not approved detailed terms of engagement.
 - Do not use this HTML as an Astro drop-in or deploy directly. Any implementation requires separate scope and product approval, legal copy verification, accessibility/performance review, and analytics.
+- Before using third-party logos on a production site, confirm trademark and media-use permissions with the rights holders, particularly [Циан's trademark terms](https://www.cian.ru/legal-documents/pravila_polzovaniya_sajtom_cian_0/). Maintain a text fallback and consider self-hosting licensed assets instead of relying on external hotlinks.
 - Portrait is approved; decorative interior photography is **illustrative**, not a verified listing.
 - Suggested next stage: validate segment and preferred service priorities with Luiza, collect permissioned reviews and factual case studies; then implement the chosen structure as Astro components.
 
