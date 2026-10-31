@@ -28,10 +28,11 @@ Source of truth: [Founder research](../../../product/discovery/founder-research.
 1. Hero immediately identifies Luiza by name, role, location, experience, with direct ways to reach her.
 2. Four client-facing service categories separate selling, buying, complex transactions and legal checks.
 3. Professional profiles allow visitors to check credentials and reviews on their respective platforms, without copying potentially stale ratings.
-4. The three situation tabs illustrate *possible client questions*, **not actual completed cases**.
-5. The interactive process uses one CSS coordinate for timeline dots and the connecting line; they are centrally aligned.
-6. Direct calls/Telegram replace the earlier non-submitting sample contact form. The mockup does not collect or process form data.
-7. A persistent mobile contact bar reduces friction.
+4. The dark process section uses a subtle inline SVG olive-branch silhouette as a decorative background (no image download, `aria-hidden`, and reduced opacity on mobile).
+5. The three situation tabs illustrate *possible client questions*, **not actual completed cases**.
+6. The interactive process uses one CSS coordinate for timeline dots and the connecting line; they are centrally aligned.
+7. Direct calls/Telegram replace the earlier non-submitting sample contact form. The mockup does not collect or process form data.
+8. A persistent mobile contact bar reduces friction.
 
 ## Limitations and follow-up
 
